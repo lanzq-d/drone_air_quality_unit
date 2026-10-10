@@ -1,0 +1,27 @@
+# PlatformIO / firmware builds
+firmware/.pio/
+firmware/.vscode/.browse.c_cpp.db*
+firmware/.vscode/c_cpp_properties.json
+firmware/.vscode/launch.json
+firmware/.vscode/ipch/
+
+# Node / package caches
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data and local logs
+backend/readings.jsonl
+*.log
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python / test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/

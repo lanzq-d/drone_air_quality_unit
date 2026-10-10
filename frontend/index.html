@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drone Air Quality Unit</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">DroneAQ</p>
+          <h1>无人机空气质量检测单元</h1>
+        </div>
+        <div class="connection">
+          <span id="apiStatus" class="dot"></span>
+          <span id="apiText">连接中</span>
+        </div>
+      </header>
+
+      <section class="insight">
+        <div>
+          <span>综合判断</span>
+          <strong id="gradeValue">--</strong>
+        </div>
+        <p id="analysisText">等待传感器数据。</p>
+      </section>
+
+      <section class="summary">
+        <article id="tvocCard">
+          <span>TVOC</span>
+          <strong id="tvocValue">--</strong>
+          <small id="tvocHint">参考：小于 0.60 mg/m3</small>
+        </article>
+        <article id="ch2oCard">
+          <span>甲醛</span>
+          <strong id="ch2oValue">--</strong>
+          <small id="ch2oHint">参考：小于 0.10 mg/m3</small>
+        </article>
+        <article id="co2Card">
+          <span>CO2</span>
+          <strong id="co2Value">--</strong>
+          <small id="co2Hint">参考：小于 1000 ppm</small>
+        </article>
+        <article id="pmCard">
+          <span>颗粒物</span>
+          <strong id="pmValue">--</strong>
+          <small id="pmHint">参考：PM2.5 小于 35 ug/m3</small>
+        </article>
+      </section>
+
+      <section class="content">
+        <article class="panel trend-panel">
+          <div class="panel-title">
+            <h2>趋势</h2>
+            <span id="trendWindow" class="badge">最近 60 秒</span>
+          </div>
+          <canvas id="trendChart" width="900" height="320"></canvas>
+          <div class="legend">
+            <span><i class="line tvoc-line"></i>TVOC</span>
+            <span><i class="line ch2o-line"></i>甲醛</span>
+            <span><i class="line co2-line"></i>CO2</span>
+            <span><i class="line pm-line"></i>颗粒物</span>
+          </div>
+        </article>
+
+        <article class="panel map-panel">
+          <div class="panel-title">
+            <h2>定位</h2>
+            <span id="gpsState" class="badge">--</span>
+          </div>
+          <div class="map">
+            <div class="crosshair"></div>
+            <div class="track"></div>
+          </div>
+          <dl class="details">
+            <div><dt>纬度</dt><dd id="latValue">--</dd></div>
+            <div><dt>经度</dt><dd id="lonValue">--</dd></div>
+            <div><dt>卫星</dt><dd id="satValue">--</dd></div>
+            <div><dt>速度</dt><dd id="speedValue">--</dd></div>
+          </dl>
+        </article>
+
+        <article class="panel">
+          <div class="panel-title">
+            <h2>模块状态</h2>
+            <span id="uptimeValue" class="badge">--</span>
+          </div>
+          <div id="moduleList" class="module-list"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
